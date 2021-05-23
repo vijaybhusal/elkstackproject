@@ -1,5 +1,5 @@
 # elkstackproject
- ELK Stack Kibana
+- ELK Stack Kibana
 
 ## Automated ELK Stack Deployment
 
@@ -111,40 +111,42 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the filebeat.cfg file to /etc/ansible/filebeat-config.yml
 - Update the file filebeat-config.yml to include 
-	output.elasticsearch:
-	hosts: ["10.2.0.4:9200"]
-	username: "elastic"
-	password: "changeme"
+
+      output.elasticsearch:
+	  hosts: ["10.2.0.4:9200"]
+	  username: "elastic"
+	  password: "changeme"
 	
-	setup.kibana:
-	host: "10.2.0.4:5601"
+	  setup.kibana:
+	  host: "10.2.0.4:5601"
 
-Save this file in  /etc/ansible/files/filebeat-config.yml.
+- Save this file in  /etc/ansible/files/filebeat-config.yml.
 
-- Run the playbook, and navigate to  to check that the installation worked as expected.
+- Run the playbook, and navigate to  check that the installation worked as expected.
 
  Answer the following questions to fill in the blanks:
 - Which file is the playbook? Where do you copy it?
    - filebeat-config.yml is the playbook and we copied this to /etc/filebeat/filebeat.yml
 
 - Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
-   - I updated the Ansible containter host file etc/ansible/host. 
-   - I added a group called [elk] and specify the Private IP of ELK-VM [10.2.0.4]
+   -  Updated the Ansible containter host file etc/ansible/host. 
+   -  Added a group called [elk] and specify the Private IP of ELK-VM [10.2.0.4]
 	# /etc/ansible/hosts
 
- 	[webservers]
- 	10.0.0.10 ansible_python_interpreter=/usr/bin/python3
- 	10.0.0.11 ansible_python_interpreter=/usr/bin/python3
- 	10.0.0.13 ansible_python_interpreter=/usr/bin/python3
+	 	[webservers]
+	 	10.0.0.10 ansible_python_interpreter=/usr/bin/python3
+	 	10.0.0.11 ansible_python_interpreter=/usr/bin/python3
+	 	10.0.0.13 ansible_python_interpreter=/usr/bin/python3
 
-       	[elk]
-	10.2.0.4 ansible_python_interpreter=/usr/bin/python3
+		[elk]
+		10.2.0.4 ansible_python_interpreter=/usr/bin/python3
 
    - Then I updated filebeat-playbook.yml & metricbeat-playbook.yml header part
-	- name: installing and launching metricbeat
-  	  hosts: webservers
-  	  become: yes
-  	  tasks:
+		
+		 name: installing and launching metricbeat
+		 hosts: webservers
+	  	 become: yes
+  	     tasks:
 
 - Which URL do you navigate to in order to check that the ELK server is running?
   The public IP of ELK stack with allowed port number [20.36.46.94:5601].
