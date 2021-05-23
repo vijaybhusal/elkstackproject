@@ -73,7 +73,7 @@ A summary of the access policies in place can be found in the table below.
 | Web-2       	      | No                  | WEB LB 52.255.45.188, JB 10.0.0.12 |
 | Web-3    	      | No                  | WEB LB 52.255.45.188, JB 10.0.0.12 |
 | ELK-VM   	      | Yes / TCP 5601/9200 | 10.0.0.12, 10.0.0.10/11/13	 |
-| Load Balancer       | Yes / HTTP 80	    | [Personal IP]			 |
+| Load Balancer       | Yes / HTTP 80	    | [Personal IP] 119.18.22.67	 |
 
 ### Elk Configuration
 
