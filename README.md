@@ -62,18 +62,18 @@ Only the Jump Box machine can accept connections from the Internet. Access to th
 - [Your Public IP address] e.g [119.18.22.67]
 
 Machines within the network can only be accessed by Jump Box virtual machine.
-- The Jump Box VM has access to the ELK VM. The IP address of the Jump Box VM is 10.0.0.12
+- The Jump Box VM has access to the Web VM 1/2/3 & ELK VM . The IP address of the Jump Box VM is 10.0.0.12
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     	      | Publicly Accessible | Allowed IP Addresses     |
-| ------------------- | ------------------- | ------------------------ |
-| Jump Box 	      | No                  | 119.18.22.67             |
-| Web-1    	      | No                  | 52.255.45.188, 10.0.0.12 |
-| Web-2       	      | No                  | 52.255.45.188, 10.0.0.12 |
-| Web-3    	      | No                  | 52.255.45.188, 10.0.0.12 |
-| ELK-VM   	      | No                  | 52.255.45.188, 10.0.0.12 |
-| Load Balancer       | No                  | 52.255.45.188, 10.0.0.12 |
+| Name     	      | Publicly Accessible | Allowed IP Addresses     		 |
+| ------------------- | ------------------- | ---------------------------------- |
+| Jump Box 	      | Yes / SSH-22        | 119.18.22.67             		 |
+| Web-1    	      | No                  | WEB LB 52.255.45.188, JB 10.0.0.12 |
+| Web-2       	      | No                  | WEB LB 52.255.45.188, JB 10.0.0.12 |
+| Web-3    	      | No                  | WEB LB 52.255.45.188, JB 10.0.0.12 |
+| ELK-VM   	      | Yes / TCP 5601/9200 | 10.0.0.12, 10.0.0.10/11/13	 |
+| Load Balancer       | Yes / HTTP 80	    | [Personal IP]			 |
 
 ### Elk Configuration
 
