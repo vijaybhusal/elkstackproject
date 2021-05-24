@@ -152,3 +152,28 @@ SSH into the control node and follow the steps below:
 -   The public IP of ELK stack with allowed port number [20.36.46.94:5601].
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+-   On the Jump box run the following command to get the playbook: curl [https://github.com/vijaybhusal/elkstackproject/blob/main/Ansible/elk.yml](Ansible/elk.yml) > /etc/ansible/elk.yml
+- Edit the hosts file in /etc/ansible and add the details from the screenshot and update your ip addresses
+- #/etc/ansible/nano hosts
+
+		[elk] 
+		10.2.0.4 ansible_python_interpreter=/usr/bin/python3
+		
+-   To run the Playbook: ansible-playbook /etc/ansible/elk.yml
+- Check your installation is working by visiting in a browser: http://[your_elk_server_ip]:5601/app/kibana
+	-  ![Kibana Home page](Diagram/Kibana_homepage.JPG)
+	
+
+- Installing Filebeat:
+
+	-   Download the playbook with the following command: curl  [https://github.com/vijaybhusal/elkstackproject/blob/main/Ansible/filebeat-playbook.yml](Ansible/filebeat-playbook.yml)  > /etc/ansible/roles/filebeat-playbook.yml
+	-   Run the playbook with: ansible-playbook /etc/ansible/filebeat-playbook.yml
+	-   You should begin seeing information such as the following:
+	- ![Filebeat page](Diagram/filebeat.PNG)
+
+- Installing Metricbeat:
+
+	-   Download the playbook with the following command: curl [https://github.com/vijaybhusal/elkstackproject/blob/main/Ansible/metricbeat-playbook.yml](Ansible/metricbeat-playbook.yml) > /etc/ansible/roles/metric_playbook.yml
+	-   Run the playbook with: ansible-playbook /etc/ansible/metricbeat_playbook.yml
+	-   You should begin seeing information such as the following:
+	- ![Metricbeat Page](Diagram/metricbeat.PNG)
